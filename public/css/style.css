@@ -1,0 +1,344 @@
+/*Configuração de fontes*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/*Manipulando elementos do site*/
+
+* {
+    padding: 0%;
+    margin: 0px;
+    
+}
+
+body {
+    background-color: #101010;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    transition: 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.blur {
+    backdrop-filter: blur(8px);
+}
+
+.navbar ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+.navbar li {
+    opacity: 100%;
+    height: fit-content;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar li:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-out;
+    filter: brightness(1.75);
+}
+
+.navbar img {
+    width: 45px;
+}
+
+.content_landing {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container #content_landing {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, #101010 100%), url('../assets/images/woman-of-clay.jpg');
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    color: #101010;
+    margin-bottom: 90px;
+}
+
+.container .content {
+    position: relative;
+    top: 37%;
+    align-items: center;
+    margin: 100px;
+}
+
+.container .content img {
+    width: 475px;
+    bottom: 120px;
+}
+
+.container .content p {
+    color: white;
+    font-family: 'Satoshi-Light';
+    text-align: justify;
+    width: 100%;
+}
+
+.o_projeto {
+    width: 100%;
+    height: 1024px;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.o_projeto article {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.o_projeto figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.o_projeto #figure2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/*Efeito "surgir" nas imagens da section*/
+
+.icons_color1 {
+    width: 350px;
+    padding: 0%;
+    align-items: flex-end;
+    margin: 0;
+    margin-right: 40px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.icons_color1.aparece1 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.icons_color2 {
+    width: 350px;
+    padding: 0%;
+    align-items: flex-end;
+    margin: 0;
+    margin-left: 40px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.icons_color2.aparece2 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.icons_color3 {
+    width: 350px;
+    padding: 0%;
+    align-items: flex-end;
+    margin: 0;
+    margin-right: 40px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.icons_color3.aparece3 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.o_projeto figure p {
+    margin: 0px;
+    display: flex;
+    width: 67.8%;
+    color: white;
+    font-family: 'Satoshi-Light';
+    text-align: justify;
+}
+
+.cadastre_se figure {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1024px;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 200px;
+    
+}
+
+/*Efeito "surgir" no slogan*/
+
+.slogan {
+    width: 500px;
+    margin-left: 45px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.9s ease-out;
+}
+
+.slogan.aparece {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/*Botão "CADASTRAR-SE"*/
+
+.cadastre_se button {
+    margin-top: 80px;
+    background-color: #801CCF;
+    color: white;
+    border: none;
+    padding: 30px 80px;
+    font-family: 'Satoshi-Black';
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cadastre_se button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-out;
+}
+
+
+

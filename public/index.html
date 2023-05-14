@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ojagarra</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="assets/images/logoFinal.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar" id="nav">
+            <ul>
+                <li>
+                    <a href="sobre_mim.html">SOBRE MIM</a>
+                </li>
+                <li>
+                    <a href="index.html"><img src="assets/images/logoFinal.svg" alt="logo"></a>
+                </li>
+                <li>
+                    <a href="">ALUGUE AGORA</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+
+        <div id="content_landing">
+
+            <div class="content">
+                <img src="assets/images/tipography.png" alt="">
+                <p>ACREDITAMOS NA IMPORTÂNCIA DE EXPRESSAR-SE POR MEIO DE UMA LENTE, REGISTRANDO MOMENTOS E OS
+                    PRESERVANDO FISICAMENTE. HÁ DIFERENTES PERSPECTIVAS E INÚMERAS MANEIRAS DE SE EXPRESSAR E INSPIRAR
+                    COM O AUXÍLIO DE UMA LENTE. NOSSA MISSÃO É APOIAR TALENTOS, CONECTANDO SUA CRIATIVIDADE À FERRAMENTA
+                    NECESSÁRIA DE MANEIRA ACESSÍVEL. OFERECER FERRAMENTAS ACESSÍVEIS E DE QUALIDADE É UMA MANEIRA DE
+                    TORNAR ESSE PROCESSO MAIS FÁCIL E PRAZEROSO, PERMITINDO QUE MAIS PESSOAS POSSAM EXPERIMENTAR E
+                    DESCOBRIR A BELEZA DAS ARTES VISUAIS.</p>
+
+            </div>
+
+
+        </div>
+
+        <section class="o_projeto">
+            <article class="arti_projeto">
+                <figure>
+                    <img class="icons_color1" src="assets/images/icon_red.png" alt="">
+                    <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. ETIAM ID SAGITTIS RISUS. IN UT EX AT
+                        URNA PRETIUM VIVERRA NON VITAE QUAM. ALIQUAM ERAT VOLUTPAT. DONEC SED LEO EU VELIT RHONCUS
+                        VIVERRA. VIVAMUS MOLLIS URNA ET ACCUMSAN FRINGILLA. PROIN BLANDIT SODALES LIGULA QUIS LAOREET.
+                        CURABITUR CONSEQUAT ORCI ET CONDIMENTUM ELEMENTUM. INTEGER QUIS TURPIS IN MI CONDIMENTUM
+                        MOLESTIE. NAM ULLAMCORPER ELEIFEND LECTUS, UT ALIQUAM TELLUS PORTA UT. SED VITAE POSUERE ELIT.
+                        ALIQUAM DICTUM ERAT QUAM, ID SCELERISQUE NISI FERMENTUM QUIS.</p>
+                </figure>
+            </article>
+
+            <article class="arti_projeto">
+                <figure id="figure2">
+                    <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. ETIAM ID SAGITTIS RISUS. IN UT EX AT
+                        URNA PRETIUM VIVERRA NON VITAE QUAM. ALIQUAM ERAT VOLUTPAT. DONEC SED LEO EU VELIT RHONCUS
+                        VIVERRA. VIVAMUS MOLLIS URNA ET ACCUMSAN FRINGILLA. PROIN BLANDIT SODALES LIGULA QUIS LAOREET.
+                        CURABITUR CONSEQUAT ORCI ET CONDIMENTUM ELEMENTUM. INTEGER QUIS TURPIS IN MI CONDIMENTUM
+                        MOLESTIE. NAM ULLAMCORPER ELEIFEND LECTUS, UT ALIQUAM TELLUS PORTA UT. SED VITAE POSUERE ELIT.
+                        ALIQUAM DICTUM ERAT QUAM, ID SCELERISQUE NISI FERMENTUM QUIS.</p>
+                    <img class="icons_color2" src="assets/images/icon_purple.png" alt="">
+                </figure>
+            </article>
+
+            <article class="arti_projeto">
+                <figure>
+                    <img class="icons_color3" src="assets/images/icon_green.png" alt="">
+                    <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. ETIAM ID SAGITTIS RISUS. IN UT EX AT
+                        URNA PRETIUM VIVERRA NON VITAE QUAM. ALIQUAM ERAT VOLUTPAT. DONEC SED LEO EU VELIT RHONCUS
+                        VIVERRA. VIVAMUS MOLLIS URNA ET ACCUMSAN FRINGILLA. PROIN BLANDIT SODALES LIGULA QUIS LAOREET.
+                        CURABITUR CONSEQUAT ORCI ET CONDIMENTUM ELEMENTUM. INTEGER QUIS TURPIS IN MI CONDIMENTUM
+                        MOLESTIE. NAM ULLAMCORPER ELEIFEND LECTUS, UT ALIQUAM TELLUS PORTA UT. SED VITAE POSUERE ELIT.
+                        ALIQUAM DICTUM ERAT QUAM, ID SCELERISQUE NISI FERMENTUM QUIS.</p>
+                </figure>
+            </article>
+
+        </section>
+
+        <section class="cadastre_se" id="back_imgCad">
+            <figure>
+                <img class="slogan" src="assets/images/tipography_slogan.png" alt="">
+                <button>CADASTRE-SE AGORA</button>
+            </figure>
+
+        </section>
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
+<script>
+    // referenciando elementos
+    const elemento1 = document.querySelector('.icons_color1');
+    const elemento2 = document.querySelector('.icons_color2');
+    const elemento3 = document.querySelector('.icons_color3');
+
+    // posição em que o elemento apareçe
+    const posicao1 = 500;
+    const posicao2 = 800;
+    const posicao3 = 1000;
+
+    // delimitando evento a partir da posição do scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > posicao1) {
+            elemento1.classList.add('aparece1');
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > posicao2) {
+            elemento2.classList.add('aparece2');
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > posicao3) {
+            elemento3.classList.add('aparece3');
+        }
+    });
+
+    // blur da navbar
+    const navbar = document.getElementById('nav');
+    window.onscroll = () => {
+        if (window.scrollY > 0) {
+            navbar.classList.add('blur');
+        } else {
+            navbar.classList.remove('blur');
+        }
+    };
+
+    // surgir slogan
+    const elemento = document.querySelector('.slogan');
+    const posicao = 1500;
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > posicao) {
+            elemento.classList.add('aparece');
+        }
+    });
+
+
+
+</script>
