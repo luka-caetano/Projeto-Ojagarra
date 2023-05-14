@@ -340,5 +340,16 @@ body {
     transition: transform 0.2s ease-out;
 }
 
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Satoshi-Regular';
+    color: white;
+    width: 100%;
+    
+}
+
 
 

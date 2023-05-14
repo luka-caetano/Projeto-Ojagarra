@@ -1,0 +1,175 @@
+/*Configuração de fontes*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/*Manipulando elementos do site*/
+
+* {
+    padding: 0%;
+    margin: 0px;
+    
+}
+
+body {
+    background-color: #101010;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    transition: 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.blur {
+    backdrop-filter: blur(8px);
+}
+
+.navbar ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+.navbar li {
+    opacity: 100%;
+    height: fit-content;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar li:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-out;
+    filter: brightness(1.75);
+}
+
+.navbar img {
+    width: 45px;
+}
+
+.content_landing {
+    display: flex;
+    justify-content: center;
+    
+}
