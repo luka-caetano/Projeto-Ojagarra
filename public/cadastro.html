@@ -4,39 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
 
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="icon" href="assets/images/logoFinal.svg" type="image/x-icon">
 </head>
 <body>
 
-    <nav>
-        <div class="navbar" id="nav">
-            <ul>
-                <li>
-                    <a href="sobre_mim.html">SOBRE MIM</a>
-                </li>
-                <li>
-                    <a href="index.html"><img src="assets/images/logoFinal.svg" alt="logo"></a>
-                </li>
-                <li>
-                    <a href="">ALUGUE AGORA</a>
-                </li>
-            </ul>
+    <div class="container">
+        
+        <a href="index.html"><img id="tipo" src="assets/images/tipography.png" alt=""></a>
+        
+        <div class="formulario">
+
+            <div class="campo">
+                <span>Nome:</span>
+                <input id="nome_input" type="text" placeholder="Seu nome">
+            </div>
+            <div class="campo">
+                <span>E-mail:</span>
+                <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+            </div>
+            <div class="campo">
+                <span>Senha:</span>
+                <input id="senha_input" type="password" placeholder="******">
+            </div>
+            <div class="campo">
+                <span>Confirmação da Senha:</span>
+                <input id="confirmacao_senha_input" type="password" placeholder="******">
+            </div>
+            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+            <a href="login.html"><p>Já possui conta?</p></a>
+            
+
         </div>
-    </nav>
+        
+
+
+    </div>
+
+    
+
+    
     
 </body>
 </html>
-<script>
-    // blur da navbar
-    const navbar = document.getElementById('nav');
-    window.onscroll = () => {
-        if (window.scrollY > 0) {
-            navbar.classList.add('blur');
-        } else {
-            navbar.classList.remove('blur');
-        }
-    };
-</script>

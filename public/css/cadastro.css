@@ -114,62 +114,80 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
-.navbar {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    transition: 0.3s ease-in-out;
-    z-index: 5;
+#tipo {
+    margin-top: 10px;
+    width: 300px;
 }
 
-.blur {
-    backdrop-filter: blur(8px);
-}
-
-.navbar ul {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    list-style: none;
-    justify-content: space-between;
-    padding: 10px 40px;
-}
-
-.navbar li {
-    opacity: 100%;
-    height: fit-content;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: white;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: white;
-}
-
-.navbar a:visited {
-    text-decoration: none;
-    color: white;
-}
-
-.navbar li:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s ease-out;
-    filter: brightness(1.75);
-}
-
-.navbar img {
-    width: 45px;
-}
-
-.content_landing {
+.container .formulario {
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 610px;
+    height: 500px;
+    background: #801CCF;
+    border-radius: 25px;
+    font-family: 'Satoshi-Regular';
+    font-size: 19px;
+    color: #ffffff;
 }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario button {
+    padding: 8px;
+    width: 417px;
+    height: 50px;
+    background-color: white;
+    color: #801CCF;
+    font-family: 'Satoshi-Black';
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.formulario p {
+    margin-top: 5px;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.formulario a {
+    text-decoration: none;
+    color: white;
+}
+
+.formulario a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+input {
+    background-color: #801CCF;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 8px;
+    width: 400px;
+    height: 30px;
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 30%;
+}
+
