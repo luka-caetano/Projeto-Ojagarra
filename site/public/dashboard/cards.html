@@ -5,13 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/perfil.css">
 </head>
 <body>
-    <div>
-        SEU PERFIL
+    <div class="edicao">
+        EDITE SEU PERFIL <br>
+        FOTO <br>
+        
+
         <input name="nome" id="nome" type="text" />
+        bio <input name="bio" id="bio" type="text" />
         <input name="foto" id="foto" type="file" />
         <button onclick="enviar()">Enviar</button>
     </div>
 </body>
 </html>
+<script>
+    function enviar() {
+      const formData = new FormData();
+      formData.append('foto', foto.files[0])
+      formData.append('bio', bio.value)
+      formData.append('nome', nome.value)
+      formData.append('idUsuario', sessionStorage.ID_USUARIO)
+  
+      fetch("/perfil/cadastro", {
+        method: "POST",
+        body: formData
+      })
+        .then(res => {
+          console.log();
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  </script>
