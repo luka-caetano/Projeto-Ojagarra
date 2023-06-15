@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/vote.css">
+    <title>Vote em um gênero</title>
+    <link rel="icon" href="../assets/images/logoFinal.svg" type="image/x-icon">
+</head>
+<body>
+
+    <h1 id="voteTitle">VOTE EM UM GÊNERO CINEMATOGRÁFICO</h1>
+    <div class="container">
+    
+            <div class="card" onclick="voto(1)">
+                <img id="card1" src="../assets/images/hitchcock.png" alt="">
+                <h3 id="Hred">TERROR PSICOLÓGICO</h3>
+                <p id="Pred">Alfred Hitchcock</p>
+            </div>
+            <div class="card" onclick="voto(2)">
+                <img id="card2" src="../assets/images/bergman.png" alt="">
+                <h3 id="Hpurple">EXISTENCIALISMO</h3>
+                <p id="Ppurple">Ingmar Bergman</p>
+            </div>
+            <div class="card" onclick="voto(3)">
+                <img id="card3" src="../assets/images/scorsese.png" alt="">
+                <h3 id="Hgreen">CRIME</h3>
+                <p id="Pgreen">Martin Scorsese</p>
+            </div>
+        
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var valorVoto = 0;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    function voto(idGenero){
+        alert(idGenero)
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        valorVoto = Number(idGenero);
+
+        // Enviando o valor da nova input
+        fetch("/voto/votarGenero", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                votoServer: valorVoto,
+                idUsuarioServer: idUsuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location = "./voteFoto.html";
+                }, "2000")
+            } 
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

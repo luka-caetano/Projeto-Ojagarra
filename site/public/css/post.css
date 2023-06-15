@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/**/
+
+body {
+  background-color: #101010;
+}
+
+.edicao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+.edicao h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+.edicao h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: white;
+}
+
+.edicao #titulo {
+  width: 482px;
+  height: 55px;
+  left: 430px;
+  top: 602px;
+  background: #D9D9D9;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.edicao #descricao {
+  width: 482px;
+  height: 150px;
+  left: 430px;
+  top: 602px;
+  background: #D9D9D9;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.edicao #foto {
+  display: none;
+}
+
+.edicao #file-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.edicao #icon {
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  background-size: cover;
+}
+
+.edicao button {
+  position: relative;
+  left: 450px;
+  bottom: 100px;
+  border: none; 
+  background: none; 
+  padding: 0;
+  cursor: pointer;
+}
+
+.edicao button img {
+  width: 90px;
+}
+
+.edicao #fotoPerfil {
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+}

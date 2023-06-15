@@ -4,7 +4,9 @@ const perfilModel = require('../models/perfilModel');
 function salvar(req, res) {
   const imagem = req.file.filename;
 
-  const {nome, bio, idUsuario } = req.body
+  const idUsuario = req.body.idUsuario
+
+  const {nome, bio } = req.body
 
   const perfil = { nome, bio, imagem, idUsuario}
 

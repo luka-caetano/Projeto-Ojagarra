@@ -1,0 +1,301 @@
+/*Configuração de fontes*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/*Manipulando elementos do site*/
+
+* {
+    padding: 0%;
+    margin: 0px;
+    overflow-x: hidden;
+    
+}
+
+body {
+    background-color: #101010;
+}
+
+.sidebar {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85vh;
+    width: 40px;
+    background-color: black;
+    display: flex;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin: 20px 20px;
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    transition: all .3s ease-in-out;
+}
+
+.icon-img {
+    height: 40px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    color: #801CCF;
+    transition: all .3s ease-in-out;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.sidebar p {
+    font-family: 'Satoshi-Light';
+    transform: scaleY(0);
+    transition: all .1s ease-in-out;
+}
+
+.sidebar:hover .icon p {
+    transform: scaleY(1);
+}
+
+.sidebar:hover {
+    width: 150px;
+}
+
+.sidebar-up {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-down {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.header-saudacao {
+    display: flex;
+   
+   justify-content: end;
+    width: 100%;
+    font-family: 'Satoshi-Light';
+    padding-top: 20px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    
+}
+
+#saudacao {
+    font-size: 30px;
+    padding-right: 60px;
+   
+}
+
+/*Janela de exibição dos posts*/
+
+.postagens {
+    width: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: black;
+    border-radius: 25px;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    display: none;
+    max-height: 90vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/*DASHBOARD*/
+
+.dash {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 85px;
+    padding-left: 30px;
+}
+
+.dash h3 {
+    font-size: 28px;
+    font-family: 'Satoshi-Light';
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+#myChartCanvas1 {
+    display: flex;
+    height: 200px;
+}
+
+
+/*Home*/
+
+.home-class {
+    min-height: 100vh;
+}
+
+.conteudo {
+    min-height: 100vh;
+    margin-left: 75px;
+}
+
+.post{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.text h3 {
+    font-family: 'Satoshi-Light';
+    font-size: 25px;
+}
+
+.text p {
+    font-family: 'Satoshi-Light';
+    font-size: 20px;
+}
+
+.text {
+    margin-left: 80px;
+    margin-right: 40px;
+    padding-top: 80px;
+    padding-left: 40px;
+    width: 500px;
+    text-align: right;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    
+}
+
+.img {
+    padding-top: 86px;
+
+}
+
+.postImagem {
+    width: 540px;
+    height: 320px;
+    border-radius: 20px;
+    transition: all .2s ease-in-out;
+    object-fit: cover;
+    object-position: left;
+}
+
+
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +10,18 @@
     <script src="js/funcoes.js"></script>
 
     <link rel="stylesheet" href="css/cadastro.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+
     <link rel="icon" href="assets/images/logoFinal.svg" type="image/x-icon">
 </head>
+
 <body>
 
     <div class="container">
-        
+
         <a href="index.html"><img id="tipo" src="assets/images/tipography.png" alt=""></a>
-        
+
         <div class="formulario">
 
             <div class="campo">
@@ -36,27 +41,33 @@
                 <input id="confirmacao_senha_input" type="password" placeholder="******">
             </div>
             <button class="botao" onclick="cadastrar()">Cadastrar</button>
-            <a href="login.html"><p>Já possui conta?</p></a>
-            
+            <a href="login.html">
+                <p>Já possui conta?</p>
+            </a>
+
 
         </div>
-        
+
 
 
     </div>
 
-    
 
-    
-    
+
+
+
 </body>
+
 </html>
 <script>
+
+
+
     function cadastrar() {
-        /*aguardar();*/
+        //aguardar();
 
         //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
+        //Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -91,23 +102,107 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                /*cardErro.style.display = "block";
+    
+                setTimeout(() => entrar(), 2000);
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";*/
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                /*limparFormulario();
-                finalizarAguardar();*/
             } /*else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }*/
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            //finalizarAguardar();
+
+
         });
+
+        return false;
+
+
+
+
+    }
+
+
+
+    function entrar() {
+        //aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            Swal.fire({
+                        icon: 'success',
+                        title: 'Login inválido!',
+                        text: 'Não existe cadastro!',
+                        background: '#101010',
+                        color: '#FFF',
+                        confirmButtonText: 'Prosseguir',
+                    })
+            return false;
+        }
+        
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Conta logada!',
+                        text: 'Entrando...',
+                        background: '#101010',
+                        color: '#FFF',
+                        confirmButtonText: 'Prosseguir',
+                    }).then((result) => {
+
+                        setTimeout(function () {
+                            window.location = "./dashboard/perfil.html";
+                        }, 1000); // apenas para exibir o loading
+
+
+
+                    });
+
+
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    //finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
         return false;
     }

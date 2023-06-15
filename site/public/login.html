@@ -9,16 +9,16 @@
     <script src="js/funcoes.js"></script>
 
     <link rel="stylesheet" href="css/cadastro.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
     <link rel="icon" href="assets/images/logoFinal.svg" type="image/x-icon">
+
 </head>
 <body>
 
     <div class="container">
-        
         <a href="index.html"><img id="tipo" src="assets/images/tipography.png" alt=""></a>
-        
         <div class="formulario">
-
             <div class="campo">
                 <span>E-mail:</span>
                 <input id="email_input" type="text" placeholder="meuemail@provedor.com">
@@ -29,22 +29,13 @@
             </div>
             <button class="botao" onclick="entrar()">Entrar</button>
             <a href="cadastro.html"><p>Ainda não possui conta?</p></a>
-            
-
         </div>
-        
-
-
     </div>
 
-    
-
-    
-    
 </body>
 </html>
-<script>
 
+<script>
 
     function entrar() {
         /*aguardar();*/
@@ -52,15 +43,18 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
-        /*if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+        if (emailVar == "" || senhaVar == "") {
+            Swal.fire({
+                        icon: 'success',
+                        title: 'Login inválido!',
+                        text: 'Não existe cadastro!',
+                        background: '#101010',
+                        color: '#FFF',
+                        confirmButtonText: 'Prosseguir',
+                    })
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }*/
+       
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -86,10 +80,10 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "../dashboard/home.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

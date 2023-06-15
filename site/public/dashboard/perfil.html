@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edite seu perfil</title>
+  <link rel="stylesheet" href="../css/perfil.css">
+  <link rel="icon" href="../assets/images/logoFinal.svg" type="image/x-icon">
+</head>
+
+<body>
+  <div class="edicao">
+
+    <h1>EDITE SEU PERFIL</h1>
+    <h2>FOTO</h2>
+    
+    <input name="foto" id="foto" type="file" onchange="handleImageChange(event)"/>
+    <label for="foto" id="file-label">
+      <img id="icon" src="../assets/images/perfilGuest.png" alt="">
+    </label>
+
+  
+    
+    
+
+    <h2>NOME</h2>
+    <input name="nome" id="nome" type="text" placeholder="Digite aqui"/>
+
+    <h2>BIO</h2>
+    <input name="bio" id="bio" type="text" placeholder="Digite aqui"/>
+
+    <button onclick="enviar()">
+      <img src="../assets/images/arrowRight.png" alt="">
+    </button>
+
+  </div>
+</body>
+
+</html>
+<script>
+  
+
+  function handleImageChange(event) {
+    var foto = event.target;
+    var icon = document.getElementById("icon");
+
+    var file = foto.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      icon.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+  }
+
+
+  function enviar() {
+    
+
+    const formData = new FormData();
+    formData.append('foto', foto.files[0])
+    formData.append('bio', bio.value)
+    formData.append('nome', nome.value)
+    formData.append('idUsuario', sessionStorage.ID_USUARIO)
+
+    fetch("/perfil/cadastro", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => {
+        window.location = "./voteGenero.html"
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
+
+    //Escolha de arquivo
+    
+
+  
+</script>

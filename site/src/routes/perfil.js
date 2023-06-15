@@ -12,7 +12,7 @@ router.post('/cadastro', upload.single('foto'), (req, res) => {
   perfilController.salvar(req, res);
 });
 
-router.get('/:id', upload.single('foto'), (req, res) => {
+router.get('/:idUsuario', upload.single('foto'), (req, res) => {
   perfilController.buscarPerfilPeloId(req, res);
 });
 

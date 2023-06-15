@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/vote2.css">
+
+    <title>Vote em uma foto</title>
+    <link rel="icon" href="../assets/images/logoFinal.svg" type="image/x-icon">
+</head>
+<body>
+
+    <h1 id="voteTitle">VOTE EM UMA FOTO</h1>
+    <div class="container">
+
+        <div class="flip-card" onclick="voto(1)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="card1" src="../assets/images/photoJulius.png" alt="">
+                    
+                </div>
+                <div class="flip-card-back">
+                    <img src="../assets/images/juliusShulman.png" alt="">
+                    <h1>Julius Shulman</h1> 
+                    <h3>Fotografia de Arquitetura</h3> 
+                    <p>JULIUS SHULMAN FOI UM FOTÓGRAFO DE ARQUITETURA AMERICANO. A FOTOGRAFIA DE SHULMAN DIFUNDIU A ESTÉTICA DA ARQUITETURA MODERNA DE MEADOS DO SÉCULO DA CALIFÓRNIA EM TODO O MUNDO.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card2" onclick="voto(2)">
+            <div class="flip-card-inner2">
+                <div class="flip-card-front2">
+                    <img id="card2" src="../assets/images/photoFracoise.png" alt="">
+                    
+                </div>
+                <div class="flip-card-back2">
+                    <img src="../assets/images/francoiseNunez.png" alt="">
+                    <h1>Françoise Nuñez</h1> 
+                    <h3>Fotografia Documental</h3> 
+                    <p>NASCIDA EM TOULOUSE EM 1957, NUÑEZ VEIO DE UMA FAMÍLIA ESPANHOLA. COMEÇOU SUA CARREIRA COMO FOTÓGRAFA EM 1975, DEPOIS DE APRENDER A IMPRIMIR EM PRETO E BRANCO NO ESTÚDIO DE JEAN DIEUZAIDE.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card3" onclick="voto(3)">
+            <div class="flip-card-inner3">
+                <div class="flip-card-front3">
+                    <img id="card3" src="../assets/images/photoAnsel.png" alt="">
+                    
+                </div>
+                <div class="flip-card-back3">
+                    <img src="../assets/images/anselAdams.png" alt="">
+                    <h1>Ansel Adams</h1> 
+                    <h3>Fotografia de Paisagem</h3> 
+                    <p>ANSEL EASTON ADAMS FOI UM FOTÓGRAFO DE PAISAGENS E AMBIENTALISTA AMERICANO CONHECIDO POR SUAS IMAGENS EM PRETO E BRANCO DO OESTE AMERICANO.</p>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var valorVoto = 0;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    function voto(idFoto){
+        alert(idFoto)
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        valorVoto = Number(idFoto);
+
+        // Enviando o valor da nova input
+        fetch("/voto/votarFoto", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                votoServer: valorVoto,
+                idUsuarioServer: idUsuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location = "./home.html";
+                }, "2000")
+            } 
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

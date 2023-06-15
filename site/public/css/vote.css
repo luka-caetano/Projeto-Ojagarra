@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/**/
+
+body {
+    background-color: #101010;
+}
+
+#voteTitle {
+    display: flex;
+    position: relative;
+    top: 10px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: white;
+    letter-spacing: 0.03em;
+}
+
+.container {
+    display: flex;
+    padding: 35px 135px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.card img {
+    width: 275px;
+}
+
+#card1:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 25px rgba(207, 28, 65, 1));
+    transition: transform 0.7s ease-out;
+    cursor: pointer;
+}
+
+#card2:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 25px rgba(128, 28, 207, 1));
+    transition: transform 0.7s ease-out;
+    cursor: pointer;
+}
+
+#card3:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 25px rgba(43, 181, 48, 1));
+    transition: transform 0.7s ease-out;
+    cursor: pointer;
+}
+
+#Hred {
+    display: flex;
+    position: relative;
+    top: 15px;
+    justify-content: center;
+    color: #CF1C41;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#Hpurple {
+    display: flex;
+    position: relative;
+    top: 15px;
+    justify-content: center;
+    color: #801CCF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#Hgreen {
+    display: flex;
+    position: relative;
+    top: 15px;
+    justify-content: center;
+    color: #2BB530;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#Pred {
+    display: flex;
+    justify-content: center;
+    color: #CF1C41;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+#Ppurple {
+    display: flex;
+    justify-content: center;
+    color: #801CCF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+#Pgreen {
+    display: flex;
+    justify-content: center;
+    color: #2BB530;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.costume {
+    appearance: none;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <link rel="icon" href="../assets/images/logoFinal.svg" type="image/x-icon">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="../css/post.css">
+
+</head>
+
+<body>
+  <div class="edicao">
+    <h1>FAÇA UM NOVO POST</h1>
+    <h2>IMAGEM</h2>
+    <input name="foto" id="foto" type="file" onchange="handleImageChange(event)" />
+    <label for="foto" id="file-label" class="file-label">
+      <img id="icon" src="../assets/images/imgSet.png" alt="">
+    </label>
+
+    <h2>TÍTULO</h2>
+    <input name="titulo" id="titulo" type="text" placeholder="Digite aqui" />
+
+    <h2>DESCRIÇÃO</h2>
+    <input name="descricao" id="descricao" type="text" placeholder="Digite aqui" />
+
+    <button onclick="postar()">
+      <img src="../assets/images/arrowRight.png" alt="">
+    </button>
+  </div>
+</body>
+
+</html>
+<script>
+  function handleImageChange(event) {
+    var foto = event.target;
+    var icon = document.getElementById("icon");
+
+    var file = foto.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      icon.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+  }
+
+
+  //////////////////////////////////////////
+
+  function postar() {
+
+    const formData = new FormData();
+    formData.append('ftPost', foto.files[0])
+    formData.append('titulo', titulo.value)
+    formData.append('descricao', descricao.value)
+    formData.append('idUsuario', sessionStorage.ID_USUARIO)
+
+    console.log(formData.get('ftPost'))
+
+      fetch("/avisos/publicar", {
+        method: "POST",
+        body: formData
+      })
+        .then(res => {
+          // alert('voltou do then');
+
+          console.log('Publicação adicionada com sucesso');
+          Swal.fire({
+            icon: 'success',
+            title: 'Post feito!',
+            text: 'Indo para home...',
+            background: '#000',
+            color: '#FFF',
+            confirmButtonText: 'Prosseguir',
+          }).then((result) => {
+            setTimeout(function () {
+              window.location = "./home.html";
+            }, 1000);
+          });
+
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  //}
+
+    //Escolha de arquivo
+
+
+
+</script>

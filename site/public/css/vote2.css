@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&display=swap');
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../assets/fonts/Satoshi-Variable.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../assets/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi-Light.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-LightItalic';
+    src: url('../assets/fonts/Satoshi-LightItalic.woff2') format('woff2');
+         font-weight: 300;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Italic';
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+         font-weight: 400;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+         font-weight: 500;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BoldItalic';
+    src: url('../assets/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+         font-weight: 700;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi-Black.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Satoshi-BlackItalic';
+    src: url('../assets/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+         font-weight: 900;
+         font-display: swap;
+         font-style: italic;
+  }
+  
+/**/
+
+body {
+    background-color: #101010;
+}
+
+#voteTitle {
+    display: flex;
+    position: relative;
+    top: 10px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: white;
+    letter-spacing: 0.03em;
+}
+
+.container {
+    display: flex;
+    padding: 35px 70px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: end;
+}
+
+
+
+.container img {
+    height: 490px;
+}
+
+#card1:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+
+.costume {
+    appearance: none;
+}
+
+.container img {
+    
+}
+
+
+
+
+/*Flip card 1*/
+
+.flip-card {
+    background-color: transparent;
+    width: 350px;
+    height: 490px;
+    perspective: 1500px;
+    cursor: pointer;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+  
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+  
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    height: 490px;
+}
+  
+.flip-card-back {
+    background-color: #CF1C41;
+    
+    border-radius: 20px;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/*Flip card 2*/
+
+.flip-card2 {
+    background-color: transparent;
+    width: 350px;
+    height: 490px;
+    perspective: 1500px;
+    cursor: pointer;
+}
+  
+.flip-card-inner2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+  
+.flip-card2:hover .flip-card-inner2 {
+    transform: rotateY(180deg);
+}
+  
+.flip-card-front2, .flip-card-back2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-card-front2 {
+    background-color: transparent;
+    color: black;
+    height: 490px;
+}
+  
+.flip-card-back2 {
+    background-color: #801CCF;
+    border-radius: 20px;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/*Flip card 3*/
+
+.flip-card3 {
+    background-color: transparent;
+    width: 350px;
+    height: 490px;
+    perspective: 1500px;
+    cursor: pointer;
+}
+  
+.flip-card-inner3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+  
+.flip-card3:hover .flip-card-inner3 {
+    transform: rotateY(180deg);
+}
+  
+.flip-card-front3, .flip-card-back3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-card-front3 {
+    background-color: #bbb;
+    color: black;
+    height: 490px;
+}
+  
+.flip-card-back3 {
+    background-color: #2BB530;
+    border-radius: 20px;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back img, 
+.flip-card-back2 img, 
+.flip-card-back3 img {
+    padding: 40px;
+    width: 160px;
+    height: 160px;
+}
+
+.flip-card-back h1, 
+.flip-card-back2 h1, 
+.flip-card-back3 h1 {
+    font-family: 'Satoshi-Bold';
+    color: #101010;
+    position: relative;
+    bottom: 55px;
+}
+
+.flip-card-back h3, 
+.flip-card-back2 h3, 
+.flip-card-back3 h3 {
+    font-family: 'Satoshi-Medium';
+    color: #101010;
+    position: relative;
+    bottom: 98px;
+    padding: 20px 0px;
+}
+
+.flip-card-back p, 
+.flip-card-back2 p, 
+.flip-card-back3 p {
+    font-family: 'Satoshi-Medium';
+    color: #101010;
+    position: relative;
+    padding: 0% 10%;
+    bottom: 120px;
+    
+}

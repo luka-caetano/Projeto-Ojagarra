@@ -1,12 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- scripts do Chart.js - 2022-1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-up">
+                <a class="icon" href="./home.html">
+                    <img class="icon-img" src="../assets/images/icons/home.png" alt="">
+                    <p>HOME</p>
+                </a>
+                <a class="icon" href="./post.html">
+                    <img class="icon-img" src="../assets/images/icons/plus-button.png" alt="">
+                    <p>NOVO POST</p>
+                </a>
+                <a class="icon" href="">
+                    <img class="icon-img" src="../assets/images/icons/dashboard.png" alt="">
+                    <p>DASHBOARD</p>
+                </a>
+                
+            </div>
+            <div class="sidebar-down">
+                <a class="icon" href="">
+                    <img class="icon-img" src="../assets/images/icons/logout.png" alt="">
+                    <p>LOGOUT</p>
+                </a>
+            </div>
+        </aside>
+        <header class="header-saudacao">
+            <p id="saudacao">Olá, Usuário</p>
+        </header>
+        <div class="postagens">
+            <main class="feed">
+
+            </main>
+            <div id="modal-window" class="modal-window">
+                <div class="artigo">
+                    <article class="conteudo">
+                        <img class="post-img" id="post-img" src="" alt="">
+                        <p class="post-title" id="post-title">Titulo do post</p>
+                        <p class="post-text" id="post-text">Descrição do post</p>
+                    </article>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="dash">
+            <div id="graficos">
+                <div id="grafico1" class="genero">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario1">GÊNERO MAIS VOTADO</span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas1"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura1" style="color: white"></p>
+                    </div>
+                </div>
+
+                <div id="grafico2" class="foto">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario2">FOTO MAIS VOTADA</span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas2"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura2" style="color: white"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 </body>
+
 </html>
+<script>
+    var nome = sessionStorage.NOME_USUARIO;
+    saudacao.innerHTML = `Olá, ${nome}`
+
+    window.onload = obterDadosGrafico();
+    window.onload = buscarUltimosVotos();
+
+    function obterDadosGrafico() {
+
+
+
+        fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Voto(s)',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: ['#CF1C41', '#801CCF', '#2BB530'],
+                tension: 0.1
+            }],
+
+
+        };
+
+        let options = {
+            scales: {
+                y: {
+                    ticks: {
+                        stepSize: 1 // Exibe apenas números inteiros
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Oculta a legenda
+                }
+            }
+
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.Genero);
+            dados.datasets[0].data.push(registro.Contagem);
+
+        }
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: options
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas1`),
+            config
+        );
+
+    }
+
+
+
+
+
+
+    ////SEGUNDO GRÁFICO
+
+    function buscarUltimosVotos() {
+
+
+
+        fetch(`/medidas/foto`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico2(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico2(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Voto(s)',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: ['#CF1C41', '#801CCF', '#2BB530'],
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.Fotografo);
+            dados.datasets[0].data.push(registro.Contagem);
+
+        }
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas2`),
+            config
+        );
+
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas,
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
+
+</script>

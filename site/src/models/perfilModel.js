@@ -2,11 +2,11 @@ const database = require("../database/config");
 
 function salvar(perfil) {
   const instrucao = `
-    INSERT INTO perfil (fkUsuario, nome, bio, ftPerfil) VALUES (${perfil.idUsuario}, '${perfil.nome}', '${perfil.bio}', '${perfil.imagem}')`;
+    INSERT INTO perfil (idPerfil, fkUsuario, nome, bio, ftPerfil) VALUES (${perfil.idUsuario}, ${perfil.idUsuario}, '${perfil.nome}', '${perfil.bio}', '${perfil.imagem}')`;
 
   return database.executar(instrucao)
     .then(resultado => {
-      console.log('Perfil salvo com sucesso!');
+      console.log('Perfil salvo com sucesso!', resultado);
       // Outras ações após a inserção do perfil
     })
     .catch(erro => {

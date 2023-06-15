@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="../assets/images/logoFinal.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-up">
+                <a class="icon" href="./home.html">
+                    <img class="icon-img" src="../assets/images/icons/home.png" alt="">
+                    <p>HOME</p>
+                </a>
+                <a class="icon" href="./post.html">
+                    <img class="icon-img" src="../assets/images/icons/plus-button.png" alt="">
+                    <p>NOVO POST</p>
+                </a>
+                <a class="icon" href="./dashboard.html">
+                    <img class="icon-img" src="../assets/images/icons/dashboard.png" alt="">
+                    <p>DASHBOARD</p>
+                </a>
+                
+            </div>
+            <div class="sidebar-down">
+                <a class="icon" href="../index.html">
+                    <img class="icon-img" src="../assets/images/icons/logout.png" alt="">
+                    <p>LOGOUT</p>
+                </a>
+            </div>
+        </aside>
+        <header class="header-saudacao">
+            <p id="saudacao">Olá, Usuário</p>
+        </header>
+
+        <div class="home-class">
+            
+            <div class="conteudo" id="conteudo">
+                <main class="home" id="home">
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+        
+        
+
+
+</body>
+
+</html>
+<script>
+    var nome = sessionStorage.NOME_USUARIO;
+    var posts = [];
+
+    saudacao.innerHTML = `Olá, ${nome}`
+
+    window.onload = () => {
+
+        var home = document.getElementById('home');
+
+        fetch(`/avisos/listarFeed/${sessionStorage.ID_USUARIO}`, {
+            method: "GET"
+        })
+            .then(res => {
+                res.json().then(json => {
+                    usuario = json;
+
+                    json.forEach(post => {
+                        var postVision = post;
+
+                        posts.push(post);
+
+                        home.innerHTML += `
+
+                        <div class="post">
+                            <div class="text" >
+                                <h3 class="postTitulo" >${post.titulo}</h3>
+                                <p clas="postDescricao">${post.descricao}</p>
+                            </div>
+                            <div class="img">
+                                <img onclick="verificarSalvo(${post.idPost})" class="postImagem" src="${post.ftPost}" alt="${post.titulo}">
+                            </div>
+                        </div>
+                        <br>
+                `;
+
+                    });
+                })
+            })
+            .catch(err => {
+                feed.innerHTML = '';
+                console.log(err);
+            })
+
+    }
+
+</script>

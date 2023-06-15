@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&display=swap');
 
 @font-face {
     font-family: 'Satoshi-Variable';
@@ -98,8 +98,91 @@
   
 /**/
 
+body {
+  background-color: #101010;
+}
+
 .edicao {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  
+}
+
+.edicao h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+.edicao h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: white;
+}
+
+.edicao #nome {
+  width: 482px;
+  height: 55px;
+  left: 430px;
+  top: 602px;
+  background: #D9D9D9;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.edicao #bio {
+  width: 482px;
+  height: 150px;
+  left: 430px;
+  top: 602px;
+  background: #D9D9D9;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.edicao #foto {
+  display: none;
+}
+
+.edicao #file-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.edicao #icon {
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.edicao button {
+  position: relative;
+  left: 450px;
+  bottom: 100px;
+  border: none; 
+  background: none; 
+  padding: 0;
+  cursor: pointer;
+}
+
+.edicao button img {
+  width: 90px;
+}
+
+.edicao #fotoPerfil {
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
 }
